@@ -1,4 +1,4 @@
-package com.henrasn.nontonyuk
+package com.henrasn.tvpulse
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import com.henrasn.nontonyuk.ui.main.MainScreen
+import com.henrasn.tvpulse.ui.main.MainScreen
 
 @Composable
 fun MainNavigation() {

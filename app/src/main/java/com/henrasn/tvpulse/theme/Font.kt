@@ -1,9 +1,9 @@
-package com.henrasn.nontonyuk.theme
+package com.henrasn.tvpulse.theme
 
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import com.henrasn.nontonyuk.R
+import com.henrasn.tvpulse.R
 
 val EpilogueFontFamily = FontFamily(
     Font(R.font.epilogue_regular, FontWeight.Normal),

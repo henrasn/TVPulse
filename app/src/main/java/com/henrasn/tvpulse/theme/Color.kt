@@ -1,4 +1,4 @@
-package com.henrasn.nontonyuk.theme
+package com.henrasn.tvpulse.theme
 
 import androidx.compose.ui.graphics.Color
 

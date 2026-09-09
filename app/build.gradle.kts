@@ -5,10 +5,10 @@ plugins {
 }
 
 android {
-    namespace = "com.henrasn.nontonyuk"
+    namespace = "com.henrasn.tvpulse"
     compileSdk = 36
     defaultConfig {
-        applicationId = "com.henrasn.nontonyuk"
+        applicationId = "com.henrasn.tvpulse"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

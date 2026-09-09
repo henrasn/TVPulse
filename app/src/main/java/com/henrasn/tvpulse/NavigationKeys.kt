@@ -1,4 +1,4 @@
-package com.henrasn.nontonyuk
+package com.henrasn.tvpulse
 
 import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
