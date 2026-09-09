@@ -1,4 +1,4 @@
-package com.henrasn.nontonyuk.theme
+package com.henrasn.tvpulse.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -51,7 +51,7 @@ private val LightColorScheme =
     )
 
 @Composable
-fun NontonYukTheme(
+fun TVPulseTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

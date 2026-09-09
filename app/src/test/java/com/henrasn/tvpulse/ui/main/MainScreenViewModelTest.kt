@@ -1,6 +1,6 @@
-package com.henrasn.nontonyuk.ui.main
+package com.henrasn.tvpulse.ui.main
 
-import com.henrasn.nontonyuk.data.DataRepository
+import com.henrasn.tvpulse.data.DataRepository
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first

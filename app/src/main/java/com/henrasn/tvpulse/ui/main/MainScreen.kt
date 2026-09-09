@@ -1,4 +1,4 @@
-package com.henrasn.nontonyuk.ui.main
+package com.henrasn.tvpulse.ui.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
@@ -9,8 +9,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.NavKey
-import com.henrasn.nontonyuk.data.DefaultDataRepository
-import com.henrasn.nontonyuk.theme.NontonYukTheme
+import com.henrasn.tvpulse.data.DefaultDataRepository
+import com.henrasn.tvpulse.theme.TVPulseTheme
 
 @Composable
 fun MainScreen(
@@ -47,11 +47,11 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {
-    NontonYukTheme { MainScreen(listOf("Android")) }
+    TVPulseTheme { MainScreen(listOf("Android")) }
 }
 
 @Preview(showBackground = true, widthDp = 340)
 @Composable
 fun MainScreenPortraitPreview() {
-    NontonYukTheme { MainScreen(listOf("Android")) }
+    TVPulseTheme { MainScreen(listOf("Android")) }
 }
