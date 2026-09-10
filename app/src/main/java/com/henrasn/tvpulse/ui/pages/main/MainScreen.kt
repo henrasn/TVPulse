@@ -31,7 +31,6 @@ import com.henrasn.tvpulse.ui.pages.favorite.FavoriteScreen
 import com.henrasn.tvpulse.ui.pages.home.HomeScreen
 import com.henrasn.tvpulse.ui.theme.TVPulseTheme
 import kotlinx.coroutines.launch
-import okhttp3.internal.immutableListOf
 
 @Composable
 fun MainScreen(
@@ -47,7 +46,7 @@ fun MainScreen(
 
 @Composable
 fun MainContent(modifier: Modifier = Modifier, pageContent: @Composable PagerScope.(Int) -> Unit) {
-    val tabs = immutableListOf("HOME", "FAVORITE")
+    val tabs = listOf("HOME", "FAVORITE")
     val pagerState = rememberPagerState(pageCount = { tabs.size })
     val coroutineScope = rememberCoroutineScope()
 

@@ -1,4 +1,4 @@
-package com.henrasn.tvpulse.domain.usecase
+package com.henrasn.tvpulse.domain.usecase.movies
 
 import com.henrasn.tvpulse.data.model.ui.MovieUiData
 import kotlinx.coroutines.flow.Flow
