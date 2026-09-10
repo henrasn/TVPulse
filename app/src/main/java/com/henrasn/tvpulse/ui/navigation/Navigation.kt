@@ -1,4 +1,4 @@
-package com.henrasn.tvpulse
+package com.henrasn.tvpulse.ui.navigation
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import com.henrasn.tvpulse.ui.main.MainScreen
+import com.henrasn.tvpulse.ui.pages.main.MainScreen
 
 @Composable
 fun MainNavigation() {
@@ -21,7 +21,6 @@ fun MainNavigation() {
             entryProvider {
                 entry<Main> {
                     MainScreen(
-                        onItemClick = { navKey -> backStack.add(navKey) },
                         modifier = Modifier
                             .safeDrawingPadding()
                             .padding(16.dp)

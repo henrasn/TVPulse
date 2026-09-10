@@ -1,4 +1,4 @@
-package com.henrasn.tvpulse.theme
+package com.henrasn.tvpulse.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -54,7 +54,7 @@ private val LightColorScheme =
 fun TVPulseTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit,
 ) {
     val colorScheme =

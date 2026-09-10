@@ -1,4 +1,4 @@
-package com.henrasn.tvpulse.theme
+package com.henrasn.tvpulse.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
