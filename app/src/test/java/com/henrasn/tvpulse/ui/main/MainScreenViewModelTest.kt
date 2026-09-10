@@ -1,6 +1,8 @@
 package com.henrasn.tvpulse.ui.main
 
 import com.henrasn.tvpulse.data.DataRepository
+import com.henrasn.tvpulse.ui.pages.main.MainScreenUiState
+import com.henrasn.tvpulse.ui.pages.main.MainScreenViewModel
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first

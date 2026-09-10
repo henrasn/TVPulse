@@ -1,4 +1,4 @@
-package com.henrasn.tvpulse
+package com.henrasn.tvpulse.ui.pages.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,7 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.henrasn.tvpulse.theme.TVPulseTheme
+import com.henrasn.tvpulse.ui.navigation.MainNavigation
+import com.henrasn.tvpulse.ui.theme.TVPulseTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

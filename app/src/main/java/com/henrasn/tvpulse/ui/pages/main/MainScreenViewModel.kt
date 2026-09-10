@@ -1,9 +1,9 @@
-package com.henrasn.tvpulse.ui.main
+package com.henrasn.tvpulse.ui.pages.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.henrasn.tvpulse.data.DataRepository
-import com.henrasn.tvpulse.ui.main.MainScreenUiState.Success
+import com.henrasn.tvpulse.ui.pages.main.MainScreenUiState.Success
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
