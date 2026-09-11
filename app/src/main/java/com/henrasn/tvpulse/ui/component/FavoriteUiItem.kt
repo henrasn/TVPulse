@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,11 +27,16 @@ import com.henrasn.tvpulse.ui.theme.TVPulseTheme
 fun FavoriteUiItem(
     modifier: Modifier = Modifier,
     movie: MovieUiData,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    onDelete: () -> Unit
 ) {
     Card(
-        modifier = modifier.clickable(onClick = onClick),
+        modifier = modifier
+            .clickable(onClick = onClick),
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.background
+        )
     ) {
         Row(
             modifier = Modifier.padding(16.dp),
@@ -45,15 +51,16 @@ fun FavoriteUiItem(
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                 Text(
                     text = movie.title,
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.titleMedium,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
 
-                Text(text = movie.genre, style = MaterialTheme.typography.titleMedium)
+                Text(text = movie.genre, style = MaterialTheme.typography.titleSmall)
             }
 
             Text(
+                modifier = Modifier.clickable(onClick = onDelete),
                 text = stringResource(R.string.action_delete),
                 style = MaterialTheme.typography.titleMedium.copy(color = MaterialTheme.colorScheme.error)
             )
@@ -74,9 +81,11 @@ private fun PreviewFavoriteUiItem() {
         )
         LazyColumn {
             items(4) {
-                FavoriteUiItem(movie = movieUiData) {
-
-                }
+                FavoriteUiItem(
+                    movie = movieUiData,
+                    onClick = {},
+                    onDelete = {}
+                )
             }
         }
     }

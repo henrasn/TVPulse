@@ -1,4 +1,4 @@
-package com.henrasn.tvpulse.data.source
+package com.henrasn.tvpulse.data.source.remote
 
 import com.henrasn.tvpulse.core.network.NetworkResult
 import com.henrasn.tvpulse.data.model.dto.movie.MovieResponseItem

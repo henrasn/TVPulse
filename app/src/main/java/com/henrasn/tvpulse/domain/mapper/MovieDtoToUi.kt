@@ -30,6 +30,8 @@ fun MovieResponseItem.toDetailModel(): DetailMovieUiData {
         id = id,
         title = name.orEmpty(),
         image = image?.medium.orEmpty(),
+        rate = rating?.average ?: 0f,
+        genre = genres?.firstOrNull().orEmpty(),
         tags = tags,
         synopsis = summary.orEmpty()
     )
