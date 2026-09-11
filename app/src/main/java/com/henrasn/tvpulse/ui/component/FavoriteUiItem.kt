@@ -26,7 +26,8 @@ import com.henrasn.tvpulse.ui.theme.TVPulseTheme
 fun FavoriteUiItem(
     modifier: Modifier = Modifier,
     movie: MovieUiData,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    onDelete: () -> Unit
 ) {
     Card(
         modifier = modifier.clickable(onClick = onClick),
@@ -54,6 +55,7 @@ fun FavoriteUiItem(
             }
 
             Text(
+                modifier = Modifier.clickable(onClick = onDelete),
                 text = stringResource(R.string.action_delete),
                 style = MaterialTheme.typography.titleMedium.copy(color = MaterialTheme.colorScheme.error)
             )
@@ -74,9 +76,11 @@ private fun PreviewFavoriteUiItem() {
         )
         LazyColumn {
             items(4) {
-                FavoriteUiItem(movie = movieUiData) {
-
-                }
+                FavoriteUiItem(
+                    movie = movieUiData,
+                    onClick = {},
+                    onDelete = {}
+                )
             }
         }
     }

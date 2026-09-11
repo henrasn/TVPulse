@@ -10,4 +10,9 @@
     <string name="err_no_connect">No Internet Connection</string>
     <string name="title_not_found">Pencarian Tidak Ditemukan</string>
     <string name="msg_movie_not_found">Hups! Tidak ditemukan apa pun.\n Coba kata kunci lain atau periksa ejaan.</string>
+    <string name="hint_search_movie">Cari Film (misal:Sci-Fi, Spiderman, ...)</string>
+    <string name="action_explore_movie">JELAJAHI FILM POPULER</string>
+    <string name="msg_empty_favorite">Simpan film pilihanmu dengan menekan tombol favorit di halaman detail.</string>
+    <string name="title_empty_favorite">Belum Ada Film Favorit</string>
+    <string name="label_my_favorite">Favorite Saya (%1$d Film)</string>
 </resources>

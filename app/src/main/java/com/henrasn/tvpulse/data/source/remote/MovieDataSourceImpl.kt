@@ -1,4 +1,4 @@
-package com.henrasn.tvpulse.data.source
+package com.henrasn.tvpulse.data.source.remote
 
 import com.henrasn.tvpulse.core.network.TvMazeApiService
 import com.henrasn.tvpulse.core.network.safeApiCall

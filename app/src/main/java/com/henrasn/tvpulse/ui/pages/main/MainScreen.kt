@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerScope
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
@@ -35,27 +36,43 @@ import kotlinx.coroutines.launch
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
-    onMovieSelected: (Int) -> Unit
+    onMovieSelected: (Int) -> Unit,
 ) {
+    val pagerState = rememberPagerState() { 2 }
+    val coroutineScope = rememberCoroutineScope()
 
     Scaffold { innerPadding ->
-        MainContent(modifier = Modifier.padding(innerPadding), pageContent = { currentPage ->
-            if (currentPage == 0) HomeScreen(onMovieSelected = onMovieSelected) else FavoriteScreen()
-        })
+        MainContent(
+            modifier = Modifier.padding(innerPadding),
+            pageContent = { currentPage ->
+                if (currentPage == 0) HomeScreen(onMovieSelected = onMovieSelected) else FavoriteScreen(
+                    onFavoriteSelected = onMovieSelected,
+                    onExploreMovie = {
+                        coroutineScope.launch {
+                            pagerState.animateScrollToPage(0)
+                        }
+                    })
+            },
+            pagerState = pagerState
+        )
     }
 }
 
 @Composable
-fun MainContent(modifier: Modifier = Modifier, pageContent: @Composable PagerScope.(Int) -> Unit) {
+fun MainContent(
+    modifier: Modifier = Modifier,
+    pagerState: PagerState,
+    pageContent: @Composable PagerScope.(Int) -> Unit
+) {
     val tabs = listOf("HOME", "FAVORITE")
-    val pagerState = rememberPagerState(pageCount = { tabs.size })
     val coroutineScope = rememberCoroutineScope()
 
     Column(modifier.fillMaxSize()) {
         Text(
             modifier = Modifier.padding(16.dp),
             text = stringResource(R.string.app_name),
-            style = MaterialTheme.typography.headlineLarge
+            style = MaterialTheme.typography.headlineLarge,
+            color = MaterialTheme.colorScheme.primary
         )
         Spacer(Modifier.size(8.dp))
         PrimaryTabRow(
@@ -108,7 +125,8 @@ fun MainContent(modifier: Modifier = Modifier, pageContent: @Composable PagerSco
 @Composable
 private fun PreviewMainContent() {
     TVPulseTheme {
-        MainContent { currentPage ->
+        val pagerState = rememberPagerState(pageCount = { 2 })
+        MainContent(pagerState = pagerState) { currentPage ->
             Box(
                 Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
