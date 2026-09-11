@@ -14,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
@@ -46,10 +47,12 @@ fun ImageUrl(modifier: Modifier = Modifier, url: String, shape: Shape = Rectangl
                 .build(),
             contentDescription = url,
             contentScale = ContentScale.Crop,
-            modifier = modifier.background(
-                shape = shape,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            ),
+            modifier = modifier
+                .background(
+                    shape = shape,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                .clip(shape),
             onState = { state ->
                 isLoading = state is AsyncImagePainter.State.Loading
             }

@@ -8,4 +8,5 @@ interface MovieDataSource {
     suspend fun getMovies(): NetworkResult<List<MovieResponseItem>>
 
     suspend fun searchMovie(query: String): NetworkResult<List<SearchMovieResponse>>
+    suspend fun getDetailMovie(id: Int): NetworkResult<MovieResponseItem>
 }
