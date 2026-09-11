@@ -2,7 +2,11 @@ package com.henrasn.tvpulse.ui.pages.home
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -34,7 +38,7 @@ import com.henrasn.tvpulse.ui.component.PopupNotification
 import com.henrasn.tvpulse.ui.theme.TVPulseTheme
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), onMovieSelected: (MovieUiData) -> Unit) {
+fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), onMovieSelected: (Int) -> Unit) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     val context = LocalContext.current
@@ -69,11 +73,14 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), onMovieSelected: (Mov
 fun HomeContent(
     uiState: HomeUiState,
     query: TextFieldState,
-    onMovieSelected: (MovieUiData) -> Unit
+    onMovieSelected: (Int) -> Unit
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        Spacer(Modifier.size(8.dp))
         OutlinedTextField(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
             state = query,
             trailingIcon = {
                 if (query.text.isEmpty()) {
@@ -96,6 +103,7 @@ fun HomeContent(
             columns = GridCells.Fixed(2),
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp),
+            contentPadding = PaddingValues(16.dp)
         ) {
             when (uiState) {
                 is HomeUiState.Error,
@@ -113,7 +121,7 @@ fun HomeContent(
                         contentType = { "movie" }
                     ) { movie ->
                         val onSelected = remember(movie.id, onMovieSelected) {
-                            { onMovieSelected(movie) }
+                            { onMovieSelected(movie.id) }
                         }
                         MovieCard(movie = movie, onClick = onSelected)
                     }

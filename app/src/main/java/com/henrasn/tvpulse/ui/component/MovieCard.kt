@@ -42,11 +42,8 @@ fun MovieCard(
         Column(Modifier.fillMaxSize()) {
             ImageUrl(modifier = Modifier.aspectRatio(2 / 3f), url = movie.image)
 
-            Column(
-                Modifier.padding(16.dp),
-                verticalArrangement = Arrangement.spacedBy(4.dp)
-            ) {
-                Text(text = movie.title, style = MaterialTheme.typography.titleMedium)
+            Column(Modifier.padding(16.dp)) {
+                Text(text = movie.title, style = MaterialTheme.typography.titleSmall)
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(4.dp)

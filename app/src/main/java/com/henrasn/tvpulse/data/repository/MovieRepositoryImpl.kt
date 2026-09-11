@@ -21,9 +21,8 @@ class MovieRepositoryImpl @Inject constructor(
             when (result) {
                 is NetworkResult.Failure -> Result.failure(result.exception)
                 is NetworkResult.Success -> {
-                    val respMovieList = result.data.movieResponse.orEmpty()
+                    val respMovieList = result.data
                     val mappedMovieList = respMovieList
-                        .filterNotNull()
                         .take(30)
                         .map(mapper)
                     Result.success(mappedMovieList)

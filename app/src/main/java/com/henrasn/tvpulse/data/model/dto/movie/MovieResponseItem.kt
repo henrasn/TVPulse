@@ -4,33 +4,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class MovieResponse(
-
-    @SerialName("MovieResponse")
-    val movieResponse: List<MovieResponseItem?>? = null
-)
-
-@Serializable
-data class Country(
-
-    @SerialName("code")
-    val code: String? = null,
-
-    @SerialName("timezone")
-    val timezone: String? = null,
-
-    @SerialName("name")
-    val name: String? = null
-)
-
-@Serializable
-data class Self(
-
-    @SerialName("href")
-    val href: String? = null
-)
-
-@Serializable
 data class MovieResponseItem(
 
     @SerialName("summary")
@@ -43,7 +16,7 @@ data class MovieResponseItem(
     val averageRuntime: Int? = null,
 
     @SerialName("dvdCountry")
-    val dvdCountry: String? = null,
+    val dvdCountry: DvdCountry? = null,
 
     @SerialName("_links")
     val links: Links? = null,
@@ -79,7 +52,7 @@ data class MovieResponseItem(
     val schedule: Schedule? = null,
 
     @SerialName("webChannel")
-    val webChannel: String? = null,
+    val webChannel: WebChannel? = null,
 
     @SerialName("genres")
     val genres: List<String?>? = null,
@@ -101,6 +74,42 @@ data class MovieResponseItem(
 
     @SerialName("status")
     val status: String? = null
+)
+
+@Serializable
+data class DvdCountry(
+
+    @SerialName("code")
+    val code: String? = null,
+
+    @SerialName("timezone")
+    val timezone: String? = null,
+
+    @SerialName("name")
+    val name: String? = null
+)
+
+@Serializable
+data class Links(
+
+    @SerialName("self")
+    val self: Self? = null,
+
+    @SerialName("previousepisode")
+    val previousepisode: Previousepisode? = null
+)
+
+@Serializable
+data class Country(
+
+    @SerialName("code")
+    val code: String? = null,
+
+    @SerialName("timezone")
+    val timezone: String? = null,
+
+    @SerialName("name")
+    val name: String? = null
 )
 
 @Serializable
@@ -130,16 +139,6 @@ data class Schedule(
 )
 
 @Serializable
-data class Image(
-
-    @SerialName("original")
-    val original: String? = null,
-
-    @SerialName("medium")
-    val medium: String? = null
-)
-
-@Serializable
 data class Externals(
 
     @SerialName("thetvdb")
@@ -163,18 +162,41 @@ data class Previousepisode(
 )
 
 @Serializable
-data class Links(
+data class WebChannel(
 
-    @SerialName("self")
-    val self: Self? = null,
+    @SerialName("country")
+    val country: Country? = null,
 
-    @SerialName("previousepisode")
-    val previousepisode: Previousepisode? = null
+    @SerialName("name")
+    val name: String? = null,
+
+    @SerialName("id")
+    val id: Int? = null,
+
+    @SerialName("officialSite")
+    val officialSite: String? = null
+)
+
+@Serializable
+data class Self(
+
+    @SerialName("href")
+    val href: String? = null
 )
 
 @Serializable
 data class Rating(
 
     @SerialName("average")
-    val average: Float = 0f
+    val average: Float? = null
+)
+
+@Serializable
+data class Image(
+
+    @SerialName("original")
+    val original: String? = null,
+
+    @SerialName("medium")
+    val medium: String? = null
 )

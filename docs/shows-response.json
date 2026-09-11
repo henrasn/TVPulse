@@ -36,8 +36,21 @@
       },
       "officialSite": "https://www.cbs.com/"
     },
-    "webChannel": null,
-    "dvdCountry": null,
+    "webChannel": {
+      "id": 1,
+      "name": "Netflix",
+      "country": {
+        "name": "United States",
+        "code": "US",
+        "timezone": "America/New_York"
+      },
+      "officialSite": "https://www.netflix.com/"
+    },
+    "dvdCountry": {
+      "name": "United States",
+      "code": "US",
+      "timezone": "America/New_York"
+    },
     "externals": {
       "tvrage": 25988,
       "thetvdb": 264492,
