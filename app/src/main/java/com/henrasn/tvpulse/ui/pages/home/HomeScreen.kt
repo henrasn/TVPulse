@@ -1,24 +1,17 @@
 package com.henrasn.tvpulse.ui.pages.home
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.text.input.TextFieldState
-import androidx.compose.foundation.text.input.clearText
 import androidx.compose.foundation.text.input.rememberTextFieldState
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Close
-import androidx.compose.material.icons.outlined.Search
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -35,6 +28,7 @@ import com.henrasn.tvpulse.data.model.ui.MovieUiData
 import com.henrasn.tvpulse.ui.component.GridShimmer
 import com.henrasn.tvpulse.ui.component.MovieCard
 import com.henrasn.tvpulse.ui.component.PopupNotification
+import com.henrasn.tvpulse.ui.component.SearchField
 import com.henrasn.tvpulse.ui.theme.TVPulseTheme
 
 @Composable
@@ -75,58 +69,46 @@ fun HomeContent(
     query: TextFieldState,
     onMovieSelected: (Int) -> Unit
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-        Spacer(Modifier.size(8.dp))
-        OutlinedTextField(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            state = query,
-            trailingIcon = {
-                if (query.text.isEmpty()) {
-                    Icon(
-                        imageVector = Icons.Outlined.Search,
-                        contentDescription = "search"
-                    )
-                } else {
-                    IconButton(onClick = { query.clearText() }) {
-                        Icon(
-                            imageVector = Icons.Outlined.Close,
-                            contentDescription = "remove"
-                        )
-                    }
-                }
-            }
-        )
-
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            contentPadding = PaddingValues(16.dp)
+    Box {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            when (uiState) {
-                is HomeUiState.Error,
-                HomeUiState.Idle,
-                HomeUiState.Loading -> {
-                    items(6) {
-                        GridShimmer()
-                    }
-                }
+            Spacer(Modifier.size(8.dp))
+            SearchField(query)
 
-                is HomeUiState.Success -> {
-                    items(
-                        items = uiState.movies,
-                        key = { it.id },
-                        contentType = { "movie" }
-                    ) { movie ->
-                        val onSelected = remember(movie.id, onMovieSelected) {
-                            { onMovieSelected(movie.id) }
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                contentPadding = PaddingValues(16.dp)
+            ) {
+                when (uiState) {
+                    is HomeUiState.Error,
+                    HomeUiState.Idle,
+                    HomeUiState.Loading -> {
+                        items(6) {
+                            GridShimmer()
                         }
-                        MovieCard(movie = movie, onClick = onSelected)
+                    }
+
+                    is HomeUiState.Success -> {
+                        items(
+                            items = uiState.movies,
+                            key = { it.id },
+                            contentType = { "movie" }
+                        ) { movie ->
+                            val onSelected = remember(movie.id, onMovieSelected) {
+                                { onMovieSelected(movie.id) }
+                            }
+                            MovieCard(movie = movie, onClick = onSelected)
+                        }
                     }
                 }
             }
+        }
+        if (uiState is HomeUiState.Success && uiState.movies.isEmpty()) {
+            MovieEmptyState(query)
         }
     }
 }
@@ -153,6 +135,16 @@ private fun PreviewHomeContentLoaded() {
             genre = "Action"
         )
         val uiState = HomeUiState.Success(listOf(movie))
+        val textFieldState = rememberTextFieldState()
+        HomeContent(uiState, textFieldState, onMovieSelected = {})
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewHomeContentEmpty() {
+    TVPulseTheme {
+        val uiState = HomeUiState.Success(listOf())
         val textFieldState = rememberTextFieldState()
         HomeContent(uiState, textFieldState, onMovieSelected = {})
     }
