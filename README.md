@@ -1,5 +1,8 @@
 # TVPulse
 
+![Android CI/CD](https://github.com/henrasn/TVPulse/actions/workflows/android.yml/badge.svg)
+[![Latest Release](https://img.shields.io/github/v/release/henrasn/TVPulse?label=Download%20APK)](https://github.com/henrasn/TVPulse/releases/latest)
+
 TVPulse is a modern Android application for discovering and managing your favorite TV shows. Built
 with modern Android development practices, it provides a seamless experience for browsing popular
 content and keeping track of shows you love.

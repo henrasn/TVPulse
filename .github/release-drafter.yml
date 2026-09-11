@@ -1,0 +1,30 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+categories:
+  - title: 'New Features'
+    labels:
+      - 'feature'
+      - 'enhancement'
+    collapse-after: 3
+    title-regex: '^(feat|feature)(\(.*\))?:.*'
+  - title: 'Bug Fixes'
+    labels:
+      - 'fix'
+    title-regex: '^(fix|fixing)(\(.*\))?:.*'
+  - title: 'Maintenance'
+    title-regex: '^(chore|refactor|build|ci)(\(.*\))?:.*'
+  - title: 'Documentation'
+    title-regex: '^docs(\(.*\))?:.*'
+
+# This section transforms "feature(project): Add..." into "project : Add..."
+replacers:
+  - search: '/^(feat|feature|fix|chore|docs|refactor|build|ci)\((.*)\): (.*)/i'
+    replace: '$2 : $3'
+  - search: '/^(feat|feature|fix|chore|docs|refactor|build|ci): (.*)/i'
+    replace: '$2'
+
+change-template: '- $TITLE @$AUTHOR'
+template: |
+  ## What’s Changed
+
+  $CHANGELOG
