@@ -25,7 +25,9 @@ fun MainNavigation() {
                 }
 
                 entry<DetailMovieNav> { param ->
-                    DetailMovieScreen(param.movieId)
+                    DetailMovieScreen(param.movieId) {
+                        backStack.removeLastOrNull()
+                    }
                 }
             },
     )

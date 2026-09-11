@@ -3,6 +3,7 @@ package com.henrasn.tvpulse.core.network
 import com.henrasn.tvpulse.data.model.dto.movie.MovieResponseItem
 import com.henrasn.tvpulse.data.model.dto.movie.SearchMovieResponse
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface TvMazeApiService {
@@ -12,4 +13,7 @@ interface TvMazeApiService {
 
     @GET("search/shows")
     suspend fun searchMovie(@Query("q") query: String): List<SearchMovieResponse>
+
+    @GET("shows/{id}")
+    suspend fun getDetailMovie(@Path("id") movieId: Int): MovieResponseItem
 }

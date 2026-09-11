@@ -11,4 +11,8 @@ class MovieDataSourceImpl @Inject constructor(
     override suspend fun searchMovie(query: String) =
         safeApiCall { tvMazeApiService.searchMovie(query) }
 
+    override suspend fun getDetailMovie(id: Int) = safeApiCall {
+        tvMazeApiService.getDetailMovie(id)
+    }
+
 }
