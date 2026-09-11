@@ -26,6 +26,7 @@ import com.henrasn.tvpulse.ui.theme.TVPulseTheme
 
 @Composable
 fun PopupNotification(
+    message: String,
     onDismiss: () -> Unit,
     onRetry: () -> Unit
 ) {
@@ -42,7 +43,7 @@ fun PopupNotification(
                 modifier = Modifier.padding(32.dp)
             ) {
                 Text(
-                    text = stringResource(R.string.title_connection_error),
+                    text = stringResource(R.string.title_error),
                     style = MaterialTheme.typography.headlineLarge,
                     color = MaterialTheme.colorScheme.onPrimaryContainer
                 )
@@ -50,7 +51,7 @@ fun PopupNotification(
                 Spacer(modifier = Modifier.height(22.dp))
 
                 Text(
-                    text = stringResource(R.string.msg_connection_error),
+                    text = message,
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onPrimaryContainer
                 )
@@ -94,7 +95,7 @@ private fun PreviewPopupNotification() {
                 .fillMaxSize()
                 .background(MaterialTheme.colorScheme.background)
         ) {
-            PopupNotification({}, {})
+            PopupNotification(message = "Sample error message", onDismiss = {}, onRetry = {})
         }
     }
 }
@@ -108,7 +109,7 @@ private fun PreviewPopupNotificationtheme() {
                 .fillMaxSize()
                 .background(MaterialTheme.colorScheme.background)
         ) {
-            PopupNotification({}, {})
+            PopupNotification(message = "Sample error message", onDismiss = {}, onRetry = {})
         }
     }
 }

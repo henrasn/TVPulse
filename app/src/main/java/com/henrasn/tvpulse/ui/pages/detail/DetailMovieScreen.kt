@@ -84,7 +84,10 @@ fun DetailMovieScreen(
         })
 
     if (errorMessage != null) {
-        PopupNotification(onDismiss = {
+        val message = errorMessage.orEmpty()
+        PopupNotification(
+            message = message,
+            onDismiss = {
             errorMessage = null
         }, onRetry = {
             viewModel.fetchMovie(movieId)

@@ -54,7 +54,9 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), onMovieSelected: (Int
     )
 
     if (errorMessage != null) {
+        val message = errorMessage.orEmpty()
         PopupNotification(
+            message = message,
             onRetry = viewModel::retryRequest,
             onDismiss = {
                 errorMessage = null
