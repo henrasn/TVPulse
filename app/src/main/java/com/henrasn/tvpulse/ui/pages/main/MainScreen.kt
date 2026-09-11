@@ -31,38 +31,37 @@ import com.henrasn.tvpulse.ui.pages.favorite.FavoriteScreen
 import com.henrasn.tvpulse.ui.pages.home.HomeScreen
 import com.henrasn.tvpulse.ui.theme.TVPulseTheme
 import kotlinx.coroutines.launch
-import okhttp3.internal.immutableListOf
 
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
+    onMovieSelected: (Int) -> Unit
 ) {
 
     Scaffold { innerPadding ->
         MainContent(modifier = Modifier.padding(innerPadding), pageContent = { currentPage ->
-            if (currentPage == 0) HomeScreen() else FavoriteScreen()
+            if (currentPage == 0) HomeScreen(onMovieSelected = onMovieSelected) else FavoriteScreen()
         })
     }
 }
 
 @Composable
 fun MainContent(modifier: Modifier = Modifier, pageContent: @Composable PagerScope.(Int) -> Unit) {
-    val tabs = immutableListOf("HOME", "FAVORITE")
+    val tabs = listOf("HOME", "FAVORITE")
     val pagerState = rememberPagerState(pageCount = { tabs.size })
     val coroutineScope = rememberCoroutineScope()
 
-    Column(
-        modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
+    Column(modifier.fillMaxSize()) {
         Text(
+            modifier = Modifier.padding(16.dp),
             text = stringResource(R.string.app_name),
             style = MaterialTheme.typography.headlineLarge
         )
-        Spacer(Modifier.size(16.dp))
+        Spacer(Modifier.size(8.dp))
         PrimaryTabRow(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
             selectedTabIndex = pagerState.currentPage,
             indicator = {
                 TabRowDefaults.PrimaryIndicator(

@@ -5,3 +5,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data object Main : NavKey
+
+@Serializable
+data class DetailMovieNav(val movieId: Int) : NavKey

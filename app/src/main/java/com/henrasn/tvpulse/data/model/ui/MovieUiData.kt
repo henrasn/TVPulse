@@ -1,4 +1,4 @@
-package com.henrasn.tvpulse.ui.component
+package com.henrasn.tvpulse.data.model.ui
 
 data class MovieUiData(
     val id: Int,

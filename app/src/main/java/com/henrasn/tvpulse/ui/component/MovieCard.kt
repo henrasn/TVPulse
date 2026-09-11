@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.henrasn.tvpulse.data.model.ui.MovieUiData
 import com.henrasn.tvpulse.ui.theme.TVPulseTheme
 
 @Composable
@@ -41,11 +42,8 @@ fun MovieCard(
         Column(Modifier.fillMaxSize()) {
             ImageUrl(modifier = Modifier.aspectRatio(2 / 3f), url = movie.image)
 
-            Column(
-                Modifier.padding(16.dp),
-                verticalArrangement = Arrangement.spacedBy(4.dp)
-            ) {
-                Text(text = movie.title, style = MaterialTheme.typography.titleMedium)
+            Column(Modifier.padding(16.dp)) {
+                Text(text = movie.title, style = MaterialTheme.typography.titleSmall)
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(4.dp)
