@@ -1,5 +1,8 @@
 # TVPulse
 
+![Android CI/CD](https://github.com/henrasn/TVPulse/actions/workflows/android.yml/badge.svg)
+[![Latest Release](https://img.shields.io/github/v/release/henrasn/TVPulse?label=Download%20APK)](https://github.com/henrasn/TVPulse/releases/latest)
+
 TVPulse is a modern Android application for discovering and managing your favorite TV shows. Built
 with modern Android development practices, it provides a seamless experience for browsing popular
 content and keeping track of shows you love.
@@ -77,6 +80,22 @@ graph LR
     DL((Deep Link)) -- movieapp://detail/{id} --> Detail
     Detail -- Back from DL --> HomeTab
 ```
+
+## 📝 Commit Convention
+
+This project uses **Conventional Commits** to automate release notes. The format used is:
+`<type>(<scope>): <description>`
+
+| Type                 | Category in Release Notes | Description                                               |
+|:---------------------|:--------------------------|:----------------------------------------------------------|
+| `feat` / `feature`   | **New Features**          | New functionality for the user.                           |
+| `fix` / `fixing`     | **Bug Fixes**             | A bug fix.                                                |
+| `docs`               | **Documentation**         | Documentation only changes.                               |
+| `chore` / `refactor` | **Maintenance**           | Code changes that neither fix a bug nor add a feature.    |
+| `build` / `ci`       | **Maintenance**           | Changes that affect the build system or CI configuration. |
+
+> **Note**: Scopes are automatically extracted and formatted in the release notes. For example,
+`feature(Project): Add assets` becomes `Project : Add assets`.
 
 ## 📂 Project Structure
 
