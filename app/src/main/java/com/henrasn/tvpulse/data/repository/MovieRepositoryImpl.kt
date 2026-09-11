@@ -29,4 +29,21 @@ class MovieRepositoryImpl @Inject constructor(
                 }
             }
         }.flowOn(dispatcher)
+
+    override suspend fun <R> searchMovies(query: String, mapper: (MovieResponseItem) -> R) =
+        flow {
+            emit(movieDataSource.searchMovie(query))
+        }.map { result ->
+            when (result) {
+                is NetworkResult.Failure -> Result.failure(result.exception)
+                is NetworkResult.Success -> {
+                    val respMovieList = result.data
+                    val mappedMovieList = respMovieList
+                        .mapNotNull { response -> response.show }
+                        .take(30)
+                        .map(mapper)
+                    Result.success(mappedMovieList)
+                }
+            }
+        }.flowOn(dispatcher)
 }

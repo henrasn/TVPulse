@@ -1,13 +1,14 @@
 package com.henrasn.tvpulse.domain.usecase.search
 
-import com.henrasn.tvpulse.data.model.ui.MovieUiData
-import kotlinx.coroutines.flow.flow
+import com.henrasn.tvpulse.data.model.dto.movie.MovieResponseItem
+import com.henrasn.tvpulse.data.repository.MovieRepository
+import com.henrasn.tvpulse.domain.mapper.toUiListModel
 import javax.inject.Inject
 
 class MovieSearchUseCaseImpl @Inject constructor(
-
+    val movieRepository: MovieRepository
 ) : MovieSearchUseCase {
-    // TODO: implement action use case
+
     override suspend fun invoke(query: String) =
-        flow { emit(Result.success<List<MovieUiData>>(listOf())) }
+        movieRepository.searchMovies(query, MovieResponseItem::toUiListModel)
 }

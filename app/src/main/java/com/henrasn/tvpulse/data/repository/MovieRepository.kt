@@ -5,4 +5,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {
     suspend fun <R> getMovies(mapper: (MovieResponseItem) -> R): Flow<Result<List<R>>>
+    suspend fun <R> searchMovies(
+        query: String,
+        mapper: (MovieResponseItem) -> R
+    ): Flow<Result<List<R>>>
 }

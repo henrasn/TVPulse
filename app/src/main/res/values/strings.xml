@@ -8,4 +8,6 @@
     <string name="err_resp_parsing">Mismatch data format</string>
     <string name="err_unknown">Unknown Error</string>
     <string name="err_no_connect">No Internet Connection</string>
+    <string name="title_not_found">Pencarian Tidak Ditemukan</string>
+    <string name="msg_movie_not_found">Hups! Tidak ditemukan apa pun.\n Coba kata kunci lain atau periksa ejaan.</string>
 </resources>

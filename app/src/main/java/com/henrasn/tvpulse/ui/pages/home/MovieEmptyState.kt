@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -43,14 +44,14 @@ fun MovieEmptyState(query: TextFieldState) {
             )
 
             Text(
-                text = "Pencarian Tidak Ditemukan",
+                text = stringResource(R.string.title_not_found),
                 style = MaterialTheme.typography.headlineMedium
             )
 
-            SearchField(query)
+            SearchField(query, false)
 
             Text(
-                text = "Hups! Tidak ditemukan apa pun.\n Coba kata kunci lain atau periksa ejaan.",
+                text = stringResource(R.string.msg_movie_not_found),
                 style = MaterialTheme.typography.bodyMedium,
                 textAlign = TextAlign.Center
             )

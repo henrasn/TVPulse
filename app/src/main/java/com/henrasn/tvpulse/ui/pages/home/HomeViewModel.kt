@@ -36,14 +36,12 @@ class HomeViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow<HomeUiState>(HomeUiState.Idle)
     val uiState = _uiState.asStateFlow()
-
     val queryState = TextFieldState()
     val queryTrigger = snapshotFlow { queryState.text }
         .debounce(300.milliseconds)
         .map(CharSequence::trim)
         .distinctUntilChanged()
     val retryTrigger = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
-
 
     init {
         observerQuery()

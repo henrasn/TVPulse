@@ -18,12 +18,13 @@ import androidx.compose.ui.unit.dp
 import com.henrasn.tvpulse.ui.theme.TVPulseTheme
 
 @Composable
-fun SearchField(query: TextFieldState) {
+fun SearchField(query: TextFieldState, enabled: Boolean = true) {
     OutlinedTextField(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp),
         state = query,
+        enabled = enabled,
         trailingIcon = {
             if (query.text.isEmpty()) {
                 Icon(
