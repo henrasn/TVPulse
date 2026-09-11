@@ -3,14 +3,13 @@
     <string name="action_delete">HAPUS</string>
     <string name="action_close">TUTUP</string>
     <string name="action_retry">COBA LAGI</string>
-    <string name="msg_connection_error">Terjadi kesalahan saat menghubungi server kami. Pastikan perangkat Anda terhubung ke internet dan coba lagi.</string>
-    <string name="title_connection_error">Gangguan Koneksi</string>
+    <string name="title_error">Terjadi Kesalahan</string>
     <string name="err_resp_parsing">Mismatch data format</string>
     <string name="err_unknown">Unknown Error</string>
-    <string name="err_no_connect">No Internet Connection</string>
+    <string name="err_no_connect">Terjadi kesalahan saat menghubungi server kami. Pastikan perangkat Anda terhubung ke internet dan coba lagi.</string>
     <string name="title_not_found">Pencarian Tidak Ditemukan</string>
     <string name="msg_movie_not_found">Hups! Tidak ditemukan apa pun.\n Coba kata kunci lain atau periksa ejaan.</string>
-    <string name="hint_search_movie">Cari Film (misal:Sci-Fi, Spiderman, ...)</string>
+    <string name="hint_search_movie">Cari Film (misal:Sci-Fi, Spiderman, &#8230;)</string>
     <string name="action_explore_movie">JELAJAHI FILM POPULER</string>
     <string name="msg_empty_favorite">Simpan film pilihanmu dengan menekan tombol favorit di halaman detail.</string>
     <string name="title_empty_favorite">Belum Ada Film Favorit</string>
