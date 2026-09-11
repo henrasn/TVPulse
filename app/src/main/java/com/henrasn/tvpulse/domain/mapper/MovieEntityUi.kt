@@ -1,6 +1,7 @@
 package com.henrasn.tvpulse.domain.mapper
 
 import com.henrasn.tvpulse.data.model.entity.MovieEntity
+import com.henrasn.tvpulse.data.model.ui.DetailMovieUiData
 import com.henrasn.tvpulse.data.model.ui.MovieUiData
 
 fun MovieEntity.toUiModel() = MovieUiData(
@@ -11,7 +12,7 @@ fun MovieEntity.toUiModel() = MovieUiData(
     genre = genre
 )
 
-fun MovieUiData.toEntity() = MovieEntity(
+fun DetailMovieUiData.toEntity() = MovieEntity(
     id = id,
     title = title,
     image = image,

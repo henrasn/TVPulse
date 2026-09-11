@@ -44,7 +44,6 @@ class MovieRepositoryImpl @Inject constructor(
                     val respMovieList = result.data
                     val mappedMovieList = respMovieList
                         .mapNotNull { response -> response.show }
-                        .take(30)
                         .map(mapper)
                     Result.success(mappedMovieList)
                 }
@@ -71,5 +70,9 @@ class MovieRepositoryImpl @Inject constructor(
             }.flowOn(dispatcher)
     }
 
+    override fun isFavorite(movieId: Int): Flow<Boolean> =
+        localDataSource.isFavorite(movieId).flowOn(dispatcher)
+
     override suspend fun deleteMovie(movieId: Int) = localDataSource.deleteMovie(movieId)
+    override suspend fun addFavorite(movie: MovieEntity) = localDataSource.insertMovie(movie)
 }

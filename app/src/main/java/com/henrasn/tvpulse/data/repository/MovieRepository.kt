@@ -13,5 +13,7 @@ interface MovieRepository {
 
     fun <R> getDetailMovie(movieId: Int, mapper: (MovieResponseItem) -> R): Flow<Result<R>>
     fun <R> getFavoriteMovie(mapper: (MovieEntity) -> R): Flow<List<R>>
+    fun isFavorite(movieId: Int): Flow<Boolean>
     suspend fun deleteMovie(movieId: Int)
+    suspend fun addFavorite(movie: MovieEntity)
 }
