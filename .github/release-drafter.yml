@@ -11,6 +11,10 @@ categories:
     labels:
       - 'fix'
     title-regex: '^(fix|fixing)(\(.*\))?:.*'
+  - title: 'Tests'
+    labels:
+      - 'test'
+    title-regex: '^test(\(.*\))?:.*'
   - title: 'Maintenance'
     title-regex: '^(chore|refactor|build|ci)(\(.*\))?:.*'
   - title: 'Documentation'
@@ -18,9 +22,9 @@ categories:
 
 # This section transforms "feature(project): Add..." into "project : Add..."
 replacers:
-  - search: '/^(feat|feature|fix|chore|docs|refactor|build|ci)\((.*)\): (.*)/i'
+  - search: '/^(feat|feature|fix|test|chore|docs|refactor|build|ci)\((.*)\): (.*)/i'
     replace: '$2 : $3'
-  - search: '/^(feat|feature|fix|chore|docs|refactor|build|ci): (.*)/i'
+  - search: '/^(feat|feature|fix|test|chore|docs|refactor|build|ci): (.*)/i'
     replace: '$2'
 
 change-template: '- $TITLE @$AUTHOR'

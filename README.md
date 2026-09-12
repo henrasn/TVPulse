@@ -90,6 +90,7 @@ This project uses **Conventional Commits** to automate release notes. The format
 |:---------------------|:--------------------------|:----------------------------------------------------------|
 | `feat` / `feature`   | **New Features**          | New functionality for the user.                           |
 | `fix` / `fixing`     | **Bug Fixes**             | A bug fix.                                                |
+| `test`               | **Tests**                 | Adding or updating tests.                                 |
 | `docs`               | **Documentation**         | Documentation only changes.                               |
 | `chore` / `refactor` | **Maintenance**           | Code changes that neither fix a bug nor add a feature.    |
 | `build` / `ci`       | **Maintenance**           | Changes that affect the build system or CI configuration. |
