@@ -22,6 +22,8 @@ okhttp = "5.1.0"
 ksp = "2.3.12"
 kotlinxSerializationJson = "1.11.0"
 room = "2.8.5"
+robolectric = "4.16"
+mockk = "1.14.3"
 
 [libraries]
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
@@ -61,6 +63,8 @@ okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-i
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
