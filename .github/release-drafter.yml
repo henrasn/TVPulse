@@ -2,22 +2,20 @@ name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 categories:
   - title: 'New Features'
-    labels:
-      - 'feature'
-      - 'enhancement'
-    collapse-after: 3
+    when: 'labels.feature || labels.enhancement'
     title-regex: '^(feat|feature)(\(.*\))?:.*'
+    collapse-after: 3
   - title: 'Bug Fixes'
-    labels:
-      - 'fix'
+    when: 'labels.fix'
     title-regex: '^(fix|fixing)(\(.*\))?:.*'
   - title: 'Tests'
-    labels:
-      - 'test'
+    when: 'labels.test'
     title-regex: '^test(\(.*\))?:.*'
   - title: 'Maintenance'
+    when: 'labels.chore || labels.refactor || labels.build || labels.ci'
     title-regex: '^(chore|refactor|build|ci)(\(.*\))?:.*'
   - title: 'Documentation'
+    when: 'labels.docs'
     title-regex: '^docs(\(.*\))?:.*'
 
 # This section transforms "feature(project): Add..." into "project : Add..."
